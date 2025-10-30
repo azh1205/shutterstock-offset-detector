@@ -1,0 +1,46 @@
+# ===== Chrome Extension / JavaScript Project =====
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and debug output
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node modules (if you ever add tooling)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build / packed outputs
+dist/
+build/
+*.zip
+*.crx
+
+# Temporary / cache
+.cache/
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+
+# Chrome extension local data
+# (never upload your browser’s local storage or settings)
+chrome-extension-*/
+offset_check_history.csv
+
+# IDE specific
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Docs cache
+docs/.DS_Store
+docs/*.log
