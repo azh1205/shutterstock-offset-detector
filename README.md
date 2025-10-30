@@ -43,7 +43,7 @@ It can:
 
 | Popup UI | Example CSV Output |
 |-----------|-------------------|
-| ![Popup UI](docs/popup-example_02) | ![CSV Output](docs/csv-example.png) |
+| ![Popup UI](docs/popup-example_02.png) | ![CSV Output](docs/csv-example.png) |
 
 
 ---
