@@ -68,5 +68,13 @@ console.log("[content] detected:", { canon, status });
 // Merge/upgrade row
 upsertOffsetLog(canon, status);
 
+
 // Optional: also inform background (harmless if no listener)
-chrome.runtime.sendMessage({ action: "updateStatus", url: canon, status }, () => {});
+chrome.runtime.sendMessage({ action: "updateStatus", url: canon, status }, (resp) => {
+    if (chrome.runtime.lastError) {
+        // no receiver / background not available — ignore silently
+        // console.debug('sendMessage ignored:', chrome.runtime.lastError.message);
+        return;
+    }
+    // handle response if needed
+});
