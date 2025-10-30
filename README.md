@@ -61,23 +61,32 @@ It can:
 
 ⚙️ Usage
 
-Open the extension popup
-Paste:
-Shutterstock IDs
-Direct image links
-Or a collection link
-Click “OpenLink”
-
-Tabs will open automatically
-Each page will be classified in the background
-Click Download to export your results as a CSV
+1. Open the extension popup
+2. Paste:
+ > Shutterstock IDs
+ > Direct image links
+ > Or a collection link
+3. Click “OpenLink”
+4. Tabs will open automatically
+5. Each page will be classified in the background
+6. Click Download to export your results as a CSV
 
 
 
 ---
 
+💡 Why this extension needs these permissions
 
-Developed by [Azhar], [Iskandar]
+- tabs: to open the Shutterstock links you pasted, so the extension can actually check them
+- scripting: to inject a small detector script into the Shutterstock page
+- storage: to save the history of checked links locally in the popup
+- https://www.shutterstock.com/ : the extension only runs on Shutterstock, not on other sites
+
+
+
+---
+
+Developed by [Azhar Ali], [Iskandar Dzulkarnain]
 Powered by Chrome Extensions (Manifest V3)
 Inspired by the need to simplify Shutterstock link categorization.
 
