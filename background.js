@@ -75,6 +75,7 @@ async function processNextInQueue() {
   });
 }
 
+
 // ---- Message router ----
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   // From popup: add a collection to the queue (works even if user clicks twice quickly)
@@ -107,6 +108,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       );
     });
 
+    
+
     // 2️⃣ Open each extracted item in its own tab (staggered)
     openUrlsStaggered(message.links);
 
@@ -125,6 +128,24 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     processing = false;
     setTimeout(() => processNextInQueue(), 150); // short gap before next
     sendResponse?.({ ok: true });
+    return true;
+  }
+    // Handle single content-script status updates
+  if (message.action === "updateStatus" && message.url) {
+    console.log("background received updateStatus", message.url, message.status, "from", sender);
+    chrome.storage.local.get(["offsetLogs"], (data) => {
+      const prev = Array.isArray(data.offsetLogs) ? data.offsetLogs : [];
+      const map = new Map(prev.map(x => [x.url, x]));
+      if (!map.has(message.url)) {
+        map.set(message.url, { url: message.url, status: (message.status || "").toUpperCase() });
+        chrome.storage.local.set({ offsetLogs: Array.from(map.values()) }, () => {
+          sendResponse?.({ ok: true });
+        });
+      } else {
+        // already present — nothing to change
+        sendResponse?.({ ok: true });
+      }
+    });
     return true;
   }
 
