@@ -52,7 +52,7 @@ It can:
 
 1. Clone or download this repository  
    ```bash
-   git clone https://github.com/yourusername/shutterstock-offset-detector.git
+   git clone https://github.com/azh1205/shutterstock-offset-detector.git
 2. Open Chrome → Extensions → Manage Extensions
 3. Enable Developer mode
 4. Click “Load unpacked”
@@ -63,13 +63,14 @@ It can:
 
 1. Open the extension popup
 2. Paste:
- > Shutterstock IDs
- > Direct image links
- > Or a collection link
-3. Click “OpenLink”
-4. Tabs will open automatically
-5. Each page will be classified in the background
-6. Click Download to export your results as a CSV
+  Shutterstock IDs
+  Direct image links
+  Or a collection link
+  for each line
+4. Click “OpenLink”
+5. Tabs will open automatically
+6. Each page will be classified in the background
+7. Click Download to export your results as a CSV
 
 
 
