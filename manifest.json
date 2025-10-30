@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Shutterstock Offset Detector",
+  "version": "3.5.2",
+  "permissions": ["activeTab", "storage", "scripting", "tabs"],
+  "host_permissions": ["https://www.shutterstock.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.shutterstock.com/image-*/*",
+        "*://www.shutterstock.com/editorial/image-editorial/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "*://www.shutterstock.com/catalog/collections/*"   // ✅ plural
+      ],
+      "js": ["collectionScanner.js"],                      // ✅ actually load it
+      "run_at": "document_idle"
+    }
+  ]
+}
